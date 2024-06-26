@@ -2,13 +2,14 @@
 
 Create a to-do list and it must accomplish the following things:
 
-Show an unordered list of to-do items
-Show an input to enter a new to-do
-Show a button to add a to-do. When the button is clicked:
+<ol>
+<l1>Show an unordered list of to-do items</l1>
+<li>Show an input to enter a new to-do</li>
+<li>Show a button to add a to-do. When the button is clicked:
 The text from the input box is used to add a list item to the bottom of the list
-The text from the input box is cleared out.
-When the user clicks on a list item, it is removed
- 
+The text from the input box is cleared out.</li>
+<li>When the user clicks on a list item, it is removed</li>
+</ol>
 
 Challenge (Optional)
 
