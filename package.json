@@ -1,0 +1,13 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "Create a to-do list and it must accomplish the following things:",
+  "main": "toDo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
