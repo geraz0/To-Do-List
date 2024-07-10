@@ -1,23 +1,21 @@
+"use strict";
 document.addEventListener('DOMContentLoaded', (event) => {
-    const todoInput = document.getElementById('todo-input') as HTMLInputElement | null;
-    const addTodoButton = document.getElementById('add-todo') as HTMLButtonElement | null;
-    const todoList = document.getElementById('todo-list') as HTMLUListElement | null;
-
+    const todoInput = document.getElementById('todo-input');
+    const addTodoButton = document.getElementById('add-todo');
+    const todoList = document.getElementById('todo-list');
     if (!todoInput || !addTodoButton || !todoList) {
         console.error("One or more elements are missing");
         return;
     }
-
     function loadTodos() {
-        const todos = JSON.parse(localStorage.getItem('todos') || '[]') as { text: string, completed: boolean }[];
+        const todos = JSON.parse(localStorage.getItem('todos') || '[]');
         todos.forEach(todo => {
             addTodoItem(todo.text, todo.completed);
         });
     }
-
     function saveTodos() {
-        const todos: { text: string, completed: boolean }[] = [];
-        document.querySelectorAll<HTMLLIElement>('#todo-list li').forEach(li => {
+        const todos = [];
+        document.querySelectorAll('#todo-list li').forEach(li => {
             todos.push({
                 text: li.textContent || '',
                 completed: li.classList.contains('completed')
@@ -25,8 +23,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
         localStorage.setItem('todos', JSON.stringify(todos));
     }
-
-    function addTodoItem(text: string, completed = false) {
+    function addTodoItem(text, completed = false) {
         const li = document.createElement('li');
         li.textContent = text;
         if (completed) {
@@ -39,9 +36,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 saveTodos();
             }, 1000);
         });
-        todoList!.appendChild(li);
+        todoList.appendChild(li);
     }
-
     addTodoButton.addEventListener('click', () => {
         const todoText = todoInput.value.trim();
         if (todoText) {
@@ -50,12 +46,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
             saveTodos();
         }
     });
-
     todoInput.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
             addTodoButton.click();
         }
     });
-
     loadTodos();
 });
